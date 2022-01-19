@@ -1,5 +1,0 @@
-{
-  "about": {
-    "aboutContent": "<div class=\"about-content\" data-dojo-attach-point=\"customContentNode\"><h2>Download TRPA's publicly available GIS Shapefiles <a href=\"http://data-trpa.opendata.arcgis.com/datasets\" target=\"_blank\">HERE</a> as part of the ArcGIS Open Data\n      </h2>\n      <p> </p>\n      <h3>View Data In: </h3>\n      <p><a href=\"http://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Farcprod.trpa.org%2Fserver%2Frest%2Fservices%2FMapMaker%2FMapServer&amp;source=sd\" target=\"_blank\">ArcGIS Online map viewer</a></p>\n      <p><a href=\"https://arcprod.trpa.org/server/rest/services/MapMaker/MapServer/kml/mapImage.kmz\">Google Earth</a></p>\n      <p><a href=\"https://arcprod.trpa.org/server/rest/services/MapMaker/MapServer?f=lyr&amp;v=9.3\" target=\"_blank\">ArcMap</a></p><br /><p> </p>\n      <p>For more info, please visit <a href=\"https://www.tahoeopendata.org\" target=\"_blank\">TRPA's website</a>      </p></div>\n\t  Modified: 3/1/2021"
-  }
-}

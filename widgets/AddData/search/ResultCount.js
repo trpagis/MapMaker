@@ -1,54 +1,6 @@
-///////////////////////////////////////////////////////////////////////////
-// Copyright © Esri. All Rights Reserved.
-//
-// Licensed under the Apache License Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//    http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-///////////////////////////////////////////////////////////////////////////
-define(["dojo/_base/declare",
-    "dojo/number",
-    "./SearchComponent",
-    "dojo/text!./templates/ResultCount.html",
-    "dojo/i18n!../nls/strings",
-    "./util"
-  ],
-  function(declare, number, SearchComponent, template, i18n, util) {
-
-    var oThisClass = declare([SearchComponent], {
-
-      i18n: i18n,
-      templateString: template,
-
-      typePlural: i18n.search.resultCount.itemPlural,
-      typeSingular: i18n.search.resultCount.itemSingular,
-
-      postCreate: function() {
-        this.inherited(arguments);
-      },
-
-      /* SearchComponent API ============================================= */
-
-      processResults: function(searchResponse) {
-        var nHits = searchResponse.total;
-        var sType = this.typePlural;
-        if (nHits === 1) {
-          sType = this.typeSingular;
-        }
-        var s = this.i18n.search.resultCount.countPattern;
-        s = s.replace("{count}", number.format(nHits));
-        s = s.replace("{type}", sType);
-        util.setNodeText(this.messageNode, s);
-      }
-
-    });
-
-    return oThisClass;
-  });
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+require({cache:{"url:widgets/AddData/search/templates/ResultCount.html":'\x3cdiv class\x3d"search-result-count"\x3e\r\n  \x3cspan class\x3d"search-count" data-dojo-attach-point\x3d"messageNode"\x3e\x3c/span\x3e\r\n\x3c/div\x3e'}});
+define("dojo/_base/declare dojo/number ./SearchComponent dojo/text!./templates/ResultCount.html dojo/i18n!../nls/strings ./util".split(" "),function(e,f,g,h,c,k){return e([g],{i18n:c,templateString:h,typePlural:c.search.resultCount.itemPlural,typeSingular:c.search.resultCount.itemSingular,postCreate:function(){this.inherited(arguments)},processResults:function(b){b=b.total;var d=this.typePlural;1===b&&(d=this.typeSingular);var a=this.i18n.search.resultCount.countPattern;a=a.replace("{count}",f.format(b));
+a=a.replace("{type}",d);k.setNodeText(this.messageNode,a)}})});

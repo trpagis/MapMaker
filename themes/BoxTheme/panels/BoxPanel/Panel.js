@@ -1,46 +1,4 @@
-///////////////////////////////////////////////////////////////////////////
-// Copyright © Esri. All Rights Reserved.
-//
-// Licensed under the Apache License Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//    http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-///////////////////////////////////////////////////////////////////////////
-
-define(['dojo/_base/declare',
-  'jimu/BaseWidgetPanel',
-  'jimu/BaseWidgetFrame',
-  './BoxFrame'
-],
-function(declare, BaseWidgetPanel, BaseWidgetFrame, BoxFrame) {
-
-  return declare([BaseWidgetPanel], {
-    baseClass: 'jimu-widget-panel box-panel',
-
-    startup: function(){
-      this.inherited(arguments);
-      this.started = true;
-    },
-
-    createFrame: function(widgetConfig) {
-        var frame;
-        if (this.config.widgets && this.config.widgets.length === 1 || !this.config.widgets) {
-          frame = new BaseWidgetFrame();
-        } else {
-          frame = new BoxFrame({
-            label: widgetConfig.label,
-            widgetManager: this.widgetManager
-          });
-        }
-        return frame;
-      }
-
-  });
-});
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define(["dojo/_base/declare","jimu/BaseWidgetPanel","jimu/BaseWidgetFrame","./BoxFrame"],function(a,b,c,d){return a([b],{baseClass:"jimu-widget-panel box-panel",startup:function(){this.inherited(arguments);this.started=!0},createFrame:function(e){return this.config.widgets&&1===this.config.widgets.length||!this.config.widgets?new c:new d({label:e.label,widgetManager:this.widgetManager})}})});

@@ -1,4 +1,6 @@
-///////////////////////////////////////////////////////////////////////////
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+///////////////////////////////////////////////////////////////////////////
 // Copyright © Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
@@ -16,7 +18,7 @@
 
 var dojoConfig, jimuConfig;
 
-/*global weinreUrl, loadResources, _loadPolyfills, loadingCallback, debug, allCookies, unescape */
+/*global weinreUrl, loadResources, _loadPolyfills, loadingCallback, debug, allCookies */
 
 var ie = (function() {
 
@@ -72,7 +74,7 @@ var ie = (function() {
 
     /*jshint unused:false*/
     var hasOptions = {'extend-esri': 1};
-    if(!window.isMobileUa){
+    if(!window.isMobileUa && queryObject.disableFLWebGL !== '1' && queryObject.disableFLWebGL !== 'true'){
       hasOptions['esri-featurelayer-webgl'] = 1; //enable webgl
     }
     dojoConfig = {
@@ -220,6 +222,7 @@ var ie = (function() {
 
             require(['jimu/main'/*, 'libs/main'*/], function(jimuMain) {
               //loadingCallback('jimu', resources.length + 1, resources.length);
+              window.showWarningForLimitedBrowser(window.jimuNls);
               jimuMain.initApp();
             });
           });
@@ -234,14 +237,6 @@ var ie = (function() {
       dojoConfig.locale = ['hi'].indexOf(locale) >= 0 ? 'en' : locale;
       window._setRTL(dojoConfig.locale);
       return;
-    }
-
-    if(allCookies.esri_auth){
-      /*jshint -W061 */
-      var userObj = eval('(' + unescape(allCookies.esri_auth) + ')');
-      if(userObj.culture){
-        dojoConfig.locale = userObj.culture;
-      }
     }
 
     if(window.queryObject.mode){
